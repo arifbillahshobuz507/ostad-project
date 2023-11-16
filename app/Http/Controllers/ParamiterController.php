@@ -13,6 +13,8 @@ class ParamiterController extends Controller
    Public function post_peramiter($nam = "riya"):string{
     return "My Name is $nam";
    }
+
+
     //Multiple peramitar
    Public function get_paramiters($name = "riya", $year = 30, $city = "kushita"):string{
     //return "My Name is $name";
@@ -24,4 +26,14 @@ class ParamiterController extends Controller
     //return "My Name is $name and my age is {$year}";
     //return "My Name is $name and my age is {$year} and my city name is {$city}";
    }
+   //constraints peramiter type
+   //single peramiter constraint
+    public function get_one_peramiter_pass_constant( $constant= "riya"):string{
+       return "My name is {$constant}";
+    }
+    public function post_one_peramiter_pass_constraint( $constant= "riya"):string{
+       return "My name is {$constant}";
+    }
+
+
 }
