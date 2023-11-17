@@ -4,6 +4,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ParamiterController;
 use App\Http\Controllers\PersonalController;
+use App\Http\Controllers\RecivePeramitarBody_jsonHeaderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BasicController;
 use App\Http\Controllers\JsonController;
@@ -65,3 +66,16 @@ Route::post('/header_data',[HeaderController::class, 'post_header_data']);
 //all header data recive
 Route::get('/all_header_data',[HeaderController::class, 'get_all_header_data']);
 Route::post('/all_header_data',[HeaderController::class, 'post_all_header_data']);
+
+
+
+
+
+//Recive request data accept to paramiter json header
+
+// specific data recive to paramiter json header
+Route::get('/recive_data_to_peramiter_json_header/{name?}/{age?}',[RecivePeramitarBody_jsonHeaderController::class,'get_DataToPeramiterJsonHeader']);
+Route::post('/recive_data_to_peramiter_json_header/{name?}/{age?}',[RecivePeramitarBody_jsonHeaderController::class,'post_DataToPeramiterJsonHeader']);
+
+//All request data accept to paramiter json header
+Route::get('all_recive_data_to_peramiter_json_header/{name}/{age}',[RecivePeramitarBody_jsonHeaderController::class,'get_DataRiciveToParamiterJsonHeader']);

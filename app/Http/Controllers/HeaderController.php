@@ -40,3 +40,4 @@ class HeaderController extends Controller
         return $request->header();
     }
 }
+
