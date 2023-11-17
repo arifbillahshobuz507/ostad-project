@@ -14,7 +14,6 @@ class ParamiterController extends Controller
     return "My Name is $nam";
    }
 
-
     //Multiple peramitar
    Public function get_paramiters($name = "riya", $year = 30, $city = "kushita"):string{
     //return "My Name is $name";
@@ -26,6 +25,7 @@ class ParamiterController extends Controller
     //return "My Name is $name and my age is {$year}";
     //return "My Name is $name and my age is {$year} and my city name is {$city}";
    }
+
    //constraints peramiter type
    //single peramiter constraint
     public function get_one_peramiter_pass_constant( $constant= "riya"):string{
@@ -35,5 +35,11 @@ class ParamiterController extends Controller
        return "My name is {$constant}";
     }
 
-
+    //multiple peramiter constraint
+    public function get_multiple_peramiter_pass_constant($name=null,$age=null, $city = null):string{
+       return "My name is {$name} My age is {$age} My home town is {$city}";
+    }
+    public function post_multiple_peramiter_pass_constant($name=null,$age=null, $city = null):string{
+       return "My name is {$name} My age is {$age} My home town is {$city}";
+    }
 }
