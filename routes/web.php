@@ -7,7 +7,7 @@ use App\Http\Controllers\PersonalController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BasicController;
 use App\Http\Controllers\JsonController;
-
+use App\Http\Controllers\HeaderController;
 
 Route::get('/',function (){
     return view('welcome');
@@ -54,3 +54,14 @@ Route::post('/specific_jeson_data',[JsonController::class,'Post_json_body_data']
 //Multiple recive json data
 Route::get('/multiple_jeson_data',[JsonController::class,'get_multiple_json_body_data']);
 Route::post('/multiple_jeson_data',[JsonController::class,'Post_multiple_json_body_data']);
+
+
+
+// request header data routes
+//specific header data
+Route::get('/header_data',[HeaderController::class, 'get_header_data']);
+Route::post('/header_data',[HeaderController::class, 'post_header_data']);
+
+//all header data recive
+Route::get('/all_header_data',[HeaderController::class, 'get_all_header_data']);
+Route::post('/all_header_data',[HeaderController::class, 'post_all_header_data']);

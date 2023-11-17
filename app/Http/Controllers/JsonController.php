@@ -24,7 +24,8 @@ class JsonController extends Controller
     //Multiple recive json data
     public function get_multiple_json_body_data(Request $request):array{
         return $request->input();
-    } public function post_multiple_json_body_data(Request $request):array{
+    }
+    public function post_multiple_json_body_data(Request $request):array{
         return $request->input();
     }
 }
