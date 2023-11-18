@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\FormController;
 use App\Http\Controllers\ParamiterController;
 use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\RecivePeramitarBody_jsonHeaderController;
@@ -78,4 +79,8 @@ Route::get('/recive_data_to_peramiter_json_header/{name?}/{age?}',[RecivePeramit
 Route::post('/recive_data_to_peramiter_json_header/{name?}/{age?}',[RecivePeramitarBody_jsonHeaderController::class,'post_DataToPeramiterJsonHeader']);
 
 //All request data accept to paramiter json header
-Route::get('all_recive_data_to_peramiter_json_header/{name}/{age}',[RecivePeramitarBody_jsonHeaderController::class,'get_DataRiciveToParamiterJsonHeader']);
+Route::get('/all_recive_data_to_peramiter_json_header/{name}/{age}',[RecivePeramitarBody_jsonHeaderController::class,'get_DataRiciveToParamiterJsonHeader']);
+Route::post('/all_recive_data_to_peramiter_json_header/{name}/{age}',[RecivePeramitarBody_jsonHeaderController::class,'post_DataRiciveToParamiterJsonHeader']);
+
+// Recive form data || Multipat/Form data || image  file
+Route::post('/recive_form_data', [FormController::class, 'formData']);
