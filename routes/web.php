@@ -1,10 +1,9 @@
 <?php
 
 
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FormController;
+use App\Http\Controllers\IpAndContentAcceptController;
 use App\Http\Controllers\ParamiterController;
-use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\RecivePeramitarBody_jsonHeaderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BasicController;
@@ -16,13 +15,9 @@ Route::get('/',function (){
 });
 
 
-// hasin vai class routes
-
-
 //basic Route
 Route::get('/basic',[BasicController::class,'basic']);
 Route::post('/basic',[BasicController::class,'basic']);
-
 
 
 // parameters
@@ -33,7 +28,6 @@ Route::post('/peramiter/{name?}',[ParamiterController::class,'post_peramiter']);
 //Multiple peramitar
 Route::get('/paramiters/{name?}/{age?}/{city?}',[ParamiterController::class,'get_paramiters']);
 Route::post('/paramiters/{name?}/{age?}/{city?}',[ParamiterController::class,'post_paramiters']);
-
 
 
 
@@ -70,8 +64,6 @@ Route::post('/all_header_data',[HeaderController::class, 'post_all_header_data']
 
 
 
-
-
 //Recive request data accept to paramiter json header
 
 // specific data recive to paramiter json header
@@ -82,5 +74,24 @@ Route::post('/recive_data_to_peramiter_json_header/{name?}/{age?}',[RecivePerami
 Route::get('/all_recive_data_to_peramiter_json_header/{name}/{age}',[RecivePeramitarBody_jsonHeaderController::class,'get_DataRiciveToParamiterJsonHeader']);
 Route::post('/all_recive_data_to_peramiter_json_header/{name}/{age}',[RecivePeramitarBody_jsonHeaderController::class,'post_DataRiciveToParamiterJsonHeader']);
 
+
+
 // Recive form data || Multipat/Form data || image  file
 Route::post('/recive_form_data', [FormController::class, 'formData']);
+Route::post('/upload_form_data',[FormController::class, 'filerecive']);
+
+
+
+// Locate Ip Address
+Route::get('/ip_access',[IpAndContentAcceptController::class,'get_ipAccess']);
+Route::post('/ip_access',[IpAndContentAcceptController::class,'post_ipAccess']);
+
+
+//Content negotiation || content accept type
+//see accept negotiation type
+Route::post('/see_negotiation_type',[IpAndContentAcceptController::class,'post_SeeNegotiationType']);
+Route::get('/see_negotiation_type',[IpAndContentAcceptController::class,'get_SeeNegotiationType']);
+
+//define who content|negotitaiton type accept
+Route::post('define_concetn_type_accept',[IpAndContentAcceptController::class,'post_define_content_accept']);
+

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 class FormController extends Controller
 {
+
+    //form data Recive
    public function formData(Request $request):array{
        $name = $request->input('name');
        $age = $request->input('age');
@@ -29,4 +31,12 @@ class FormController extends Controller
            "fileINformation"=>$fileINformation
        );
    }
+
+   //form file Upload any File
+    public function filerecive(Request $request):bool{
+       $file = $request->file('image');
+       $file->storeAs('upload/category/image',$file->getClientOriginalName());
+        $file->move(public_path('upload/category/image'),$file->getClientOriginalName());
+       return true;
+    }
 }
