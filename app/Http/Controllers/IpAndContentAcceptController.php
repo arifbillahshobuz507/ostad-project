@@ -30,5 +30,10 @@ class IpAndContentAcceptController extends Controller
         }else{
             return false;
         }
+//        if($request->accepts('application/json')){
+//            return true;
+//        }else{
+//            return false;
+//        }
     }
 }
